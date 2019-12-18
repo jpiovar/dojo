@@ -32,7 +32,7 @@
 
       domConstruct.place('<em> Dojo!</em>', greetingNode);
 
-      on(myButton, "click", function(evt){
+      on(myButton, "click", (evt) => {
         domStyle.set(myDiv, "backgroundColor", "blue");
         myDialog.show();
         setTimeout(() => {
@@ -40,7 +40,7 @@
         }, 2000);
       });
 
-      dojo.addOnLoad(function() {
+      dojo.addOnLoad(() => {
         debugger;
         console.log("Připraven!");
         myDialog = new Dialog({
@@ -50,7 +50,7 @@
         myDialog.show();
       });
 
-      dojo.ready(function(){
+      dojo.ready(() => {
         debugger;
         console.log('dojo ready');
       });
