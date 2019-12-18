@@ -32,12 +32,13 @@
 
       domConstruct.place('<em> Dojo!</em>', greetingNode);
 
-      on(myButton, "click", (evt) => {
+      var handle = on(myButton, "click", (evt) => {
         domStyle.set(myDiv, "backgroundColor", "blue");
         myDialog.show();
         setTimeout(() => {
           domStyle.set(myDiv, "backgroundColor", "white");
         }, 2000);
+        handle.remove(); // just once, next time not reacts
       });
 
       dojo.addOnLoad(() => {
