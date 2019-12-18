@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet"  href="http://ajax.googleapis.com/ajax/libs/dojo/1.2.0/dijit/themes/tundra/tundra.css" />
+  <meta charset="utf-8">
+  <title>Tutorial: Hello Dojo!</title>
+</head>
+<body class="tundra">
+  <h1 id="greeting">Hello</h1>
+  <button data-dojo-type="dijit/form/Button" id="myButton" type="button">
+    Show me!
+  </button>
+  <div id="myDiv">Hover over me!</div>
+  <!-- load Dojo -->
+  <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js" data-dojo-config="async: true"></script>
+  <script>
+    require([
+      'dojo',
+      'dojo/on',
+      'dojo/dom',
+      'dojo/dom-style',
+      'dojo/dom-construct',
+      'dijit/Dialog',
+      'dijit/form/Button',
+      'dijit/form/TextBox'
+    ], function (dojo, on, dom, domStyle, domConstruct, Dialog, Button, TextBox) {
+      debugger;
+      var greetingNode = dom.byId('greeting');
+      var myButton = dom.byId("myButton");
+      var myDiv = dom.byId("myDiv");
+      var myDialog = null;
+
+      domConstruct.place('<em> Dojo!</em>', greetingNode);
+
+      on(myButton, "click", function(evt){
+        domStyle.set(myDiv, "backgroundColor", "blue");
+        myDialog.show();
+        setTimeout(() => {
+          domStyle.set(myDiv, "backgroundColor", "white");
+        }, 2000);
+      });
+
+      dojo.addOnLoad(function() {
+        debugger;
+        console.log("Připraven!");
+        myDialog = new Dialog({
+          title:"A Modal Dialog",
+          href:"remote.html"
+        });
+        myDialog.show();
+      });
+
+      dojo.ready(function(){
+        debugger;
+        console.log('dojo ready');
+      });
+
+    });
+  </script>
+</body>
+</html>
