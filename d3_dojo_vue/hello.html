@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet"  href="http://ajax.googleapis.com/ajax/libs/dojo/1.2.0/dijit/themes/tundra/tundra.css" />
+  <meta charset="utf-8">
+  <title>dojo vue</title>
+</head>
+<body class="tundra">
+<div id="app-vue">
+    <h1>{{ message }}</h1>
+</div>
+<h1 id="app-dojo-vue">{{ msg }}</h1>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js" data-dojo-config="async: true"></script>
+<script>
+require([
+    'dojo',
+    'dojo/dom',
+    'dojo/dom-construct'
+], function (dojo, dom, domConstruct) {
+    debugger;
+    var adv = dom.byId('app-dojo-vue');
+
+    // domConstruct.place('<em> HELLO DOJO!</em>', greetingNode);
+
+    var obj2 = new Vue({
+        el: adv,
+        data: {msg: 'Hello Vue Dojo!'}
+    });
+
+    setTimeout(() => {
+        obj2.msg = 'vd';
+    }, 2000);
+
+});
+var obj1 = new Vue({
+  el: '#app-vue',
+  data: {message: 'Hello Vue!'}
+});
+</script>
+</body>
+</html>
