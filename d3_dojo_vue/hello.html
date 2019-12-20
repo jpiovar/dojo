@@ -9,7 +9,7 @@
 <div id="app-vue">
     <h1>{{ message }}</h1>
 </div>
-<h1 id="app-dojo-vue">{{ msg }}</h1>
+<h1 id="app-dojo-vue" v-html="msg"></h1>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js" data-dojo-config="async: true"></script>
 <script>
@@ -21,7 +21,7 @@ require([
     debugger;
     var adv = dom.byId('app-dojo-vue');
 
-    // domConstruct.place('<em> HELLO DOJO!</em>', greetingNode);
+    domConstruct.place('<em> HELLO DOJO!</em>', adv);
 
     var obj2 = new Vue({
         el: adv,
